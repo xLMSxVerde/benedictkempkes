@@ -1,4 +1,5 @@
 var express = require('express');
+var port = process.env.PORT || 8080;
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -42,5 +43,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(port);
+console.log('The magic happens on port: ' + port);
 
 module.exports = app;
